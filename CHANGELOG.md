@@ -2,6 +2,14 @@
 
 Todos los cambios importantes de este proyecto se documentan en este archivo.
 
+Este archivo sigue el enfoque de Keep a Changelog y las versiones publicadas usan Semantic Versioning.
+
+## [Unreleased]
+
+### Added
+
+- Ningun cambio todavia.
+
 ## [v1.0.0] - 2026-03-31
 
 ### Added

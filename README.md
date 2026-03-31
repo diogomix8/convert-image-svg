@@ -6,6 +6,34 @@ Script en Python para convertir archivos XML o SVG a PNG usando Inkscape desde l
 
 Este proyecto se distribuye bajo la licencia MIT.
 
+## Versionado
+
+Este proyecto sigue Semantic Versioning (`SemVer`) y mantiene el historial de cambios en `CHANGELOG.md`.
+
+Formato de versiones:
+
+- `vMAJOR.MINOR.PATCH`
+- Ejemplo: `v1.0.0`
+
+Reglas de incremento:
+
+- `PATCH` como `v1.0.1`: correcciones de errores, ajustes menores y cambios internos sin impacto en el uso esperado del script.
+- `MINOR` como `v1.1.0`: nuevas funcionalidades compatibles hacia atras, nuevas opciones de linea de comandos o mejoras de uso sin romper comandos existentes.
+- `MAJOR` como `v2.0.0`: cambios incompatibles, eliminacion o renombre de parametros, cambios en comportamiento por defecto o cualquier ajuste que obligue a adaptar automatizaciones existentes.
+
+Buenas practicas adoptadas:
+
+- Crear una tag Git por cada version publicada.
+- Publicar un GitHub Release por cada tag estable.
+- Registrar los cambios en `CHANGELOG.md` antes de crear la release.
+- Usar una seccion `Unreleased` para preparar cambios futuros antes de etiquetar una nueva version.
+
+Guia rapida para proximas versiones:
+
+- `v1.0.1` para fixes de conversion, deteccion de Inkscape o errores menores de documentacion.
+- `v1.1.0` para nuevas opciones como formatos extra, parametros nuevos o mejoras funcionales compatibles.
+- `v2.0.0` solo si se rompe compatibilidad con el comportamiento actual.
+
 ## Requisitos
 
 - Python 3.10 o superior
