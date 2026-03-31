@@ -32,7 +32,7 @@ Si no se indica una ruta, el script procesa la carpeta actual y convierte todos 
 Convertir un solo archivo:
 
 ```bash
-python convert-image-svg-to-png.py logo_tuno_libre_white.xml
+python convert-image-svg-to-png.py ejemplo_logo.xml
 ```
 
 Convertir todos los `.xml` y `.svg` de la carpeta actual:
@@ -50,13 +50,13 @@ python convert-image-svg-to-png.py . -o salida
 Exportar con ancho especifico:
 
 ```bash
-python convert-image-svg-to-png.py logo_main.xml --width 1200
+python convert-image-svg-to-png.py ejemplo_logo.xml --width 1200
 ```
 
 Exportar con resolucion DPI:
 
 ```bash
-python convert-image-svg-to-png.py logo_main.xml --dpi 300
+python convert-image-svg-to-png.py ejemplo_logo.xml --dpi 300
 ```
 
 ## Notas
