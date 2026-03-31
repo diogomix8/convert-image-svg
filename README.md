@@ -81,14 +81,40 @@ Exportar con ancho especifico:
 python convert-image-svg-to-png.py ejemplo_logo.xml --width 1200
 ```
 
+Resultado esperado:
+
+```text
+ejemplo_logo_1200w.png
+```
+
+Exportar con ancho, alto y DPI:
+
+```bash
+python convert-image-svg-to-png.py ejemplo_logo.xml --width 120 --height 120 --dpi 200
+```
+
+Resultado esperado:
+
+```text
+ejemplo_logo_120x120_200dpi.png
+```
+
 Exportar con resolucion DPI:
 
 ```bash
 python convert-image-svg-to-png.py ejemplo_logo.xml --dpi 300
 ```
 
+Resultado esperado:
+
+```text
+ejemplo_logo_300dpi.png
+```
+
 ## Notas
 
 - El script genera archivos PNG con el mismo nombre base que el archivo de entrada.
+- Si defines `--width`, `--height` o `--dpi`, esos valores se agregan al nombre del archivo generado.
+- Si defines ancho y alto a la vez, el nombre usa el formato `ANCHOxALTO`, por ejemplo `ejemplo_logo_120x120_200dpi.png`.
 - Si se indica una carpeta como entrada, se procesan todos los archivos `.xml` y `.svg` dentro de esa carpeta.
 - Los archivos de imagen y recursos fuente estan excluidos del repositorio publico mediante `.gitignore`.

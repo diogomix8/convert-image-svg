@@ -6,9 +6,9 @@ Este archivo sigue el enfoque de Keep a Changelog y las versiones publicadas usa
 
 ## [Unreleased]
 
-### Added
+### Changed
 
-- Ningun cambio todavia.
+- El nombre del PNG generado ahora incluye ancho, alto y DPI cuando esos parametros se definen.
 
 ## [v1.0.0] - 2026-03-31
 

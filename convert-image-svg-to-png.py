@@ -6,6 +6,27 @@ import subprocess
 from pathlib import Path
 
 
+def build_output_stem(
+	input_path: Path,
+	width: int | None,
+	height: int | None,
+	dpi: int | None,
+) -> str:
+	parts = [input_path.stem]
+
+	if width and height:
+		parts.append(f"{width}x{height}")
+	elif width:
+		parts.append(f"{width}w")
+	elif height:
+		parts.append(f"{height}h")
+
+	if dpi:
+		parts.append(f"{dpi}dpi")
+
+	return "_".join(parts)
+
+
 def convert_svg_in_xml(
 	input_path: Path,
 	output_path: Path,
@@ -91,7 +112,8 @@ def main() -> None:
 
 	for xml_path in candidates:
 		out_dir = output_dir or xml_path.parent
-		out_path = out_dir / f"{xml_path.stem}.png"
+		out_stem = build_output_stem(xml_path, args.width, args.height, args.dpi)
+		out_path = out_dir / f"{out_stem}.png"
 		convert_svg_in_xml(xml_path, out_path, args.width, args.height, args.dpi)
 		print(f"OK: {xml_path.name} -> {out_path.name}")
 
