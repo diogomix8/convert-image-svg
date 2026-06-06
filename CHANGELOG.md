@@ -9,6 +9,13 @@ Este archivo sigue el enfoque de Keep a Changelog y las versiones publicadas usa
 ### Changed
 
 - El nombre del PNG generado ahora incluye ancho, alto y DPI cuando esos parametros se definen.
+- Se agregaron las opciones `--transparent-bg` y `--center` para exportar con fondo transparente y centrar el dibujo en un lienzo PNG.
+- La salida del script ahora muestra la ruta completa del PNG generado para facilitar su ubicacion.
+
+### Added
+
+- Soporte opcional de Pillow para centrar la imagen en una salida con ancho y alto fijos (`--center`).
+- Nuevas opciones `--remove-solid-bg` y `--bg-tolerance` para remover fondo solido detectado en los bordes del PNG exportado.
 
 ## [v1.0.0] - 2026-03-31
 

@@ -38,6 +38,7 @@ Guia rapida para proximas versiones:
 
 - Python 3.10 o superior
 - Inkscape instalado y disponible en el PATH, o en `C:\Program Files\Inkscape\bin\inkscape.exe`
+- Pillow (`pip install pillow`) si vas a usar `--center`
 
 ## Instalacion de Inkscape
 
@@ -50,7 +51,7 @@ En Windows:
 ## Uso
 
 ```bash
-python convert-image-svg-to-png.py [ruta_entrada] [-o carpeta_salida] [--width N] [--height N] [--dpi N]
+python convert-image-svg-to-png.py [ruta_entrada] [-o carpeta_salida] [--width N] [--height N] [--dpi N] [--transparent-bg] [--center] [--remove-solid-bg] [--bg-tolerance N]
 ```
 
 Si no se indica una ruta, el script procesa la carpeta actual y convierte todos los archivos `.xml` y `.svg` que encuentre.
@@ -99,6 +100,36 @@ Resultado esperado:
 ejemplo_logo_120x120_200dpi.png
 ```
 
+Exportar con fondo transparente:
+
+```bash
+python convert-image-svg-to-png.py ejemplo_logo.xml --transparent-bg
+```
+
+Exportar centrando el dibujo en un lienzo 512x512 (fondo transparente):
+
+```bash
+python convert-image-svg-to-png.py ejemplo_logo.xml --width 512 --height 512 --center --transparent-bg
+```
+
+Resultado esperado:
+
+```text
+ejemplo_logo_512x512.png
+```
+
+Eliminar fondo solido detectado en los bordes:
+
+```bash
+python convert-image-svg-to-png.py ejemplo_logo.xml --remove-solid-bg
+```
+
+Eliminar fondo solido con tolerancia personalizada:
+
+```bash
+python convert-image-svg-to-png.py ejemplo_logo.xml --remove-solid-bg --bg-tolerance 24
+```
+
 Exportar con resolucion DPI:
 
 ```bash
@@ -116,5 +147,10 @@ ejemplo_logo_300dpi.png
 - El script genera archivos PNG con el mismo nombre base que el archivo de entrada.
 - Si defines `--width`, `--height` o `--dpi`, esos valores se agregan al nombre del archivo generado.
 - Si defines ancho y alto a la vez, el nombre usa el formato `ANCHOxALTO`, por ejemplo `ejemplo_logo_120x120_200dpi.png`.
+- `--transparent-bg` exporta el PNG con transparencia en el fondo de pagina.
+- `--center` centra el dibujo en un lienzo de salida y requiere definir `--width` y `--height`.
+- `--remove-solid-bg` elimina un fondo de color solido conectado a los bordes del PNG.
+- `--bg-tolerance` ajusta que tan estricto es el detector de fondo (0 a 255, por defecto 16).
 - Si se indica una carpeta como entrada, se procesan todos los archivos `.xml` y `.svg` dentro de esa carpeta.
 - Los archivos de imagen y recursos fuente estan excluidos del repositorio publico mediante `.gitignore`.
+- En modo `--center`, el script crea archivos temporales ocultos (`.center.tmp.png`, `.bgclean.tmp.png`) y los elimina al finalizar; el PNG final no se elimina.
